@@ -1,0 +1,139 @@
+const url = 'http://localhost:7070/signUp';
+
+const form = {
+    name: document.querySelector("#name"),
+    surname: document.querySelector("#lname"),
+    gender: document.querySelector("#gender"),
+    email: document.querySelector("#email"),
+    passwordHash: document.querySelector("#password"),
+    img: document.getElementById("#pic").files[0]
+  };
+  console.log[img];
+
+//   const FileUploader = ({onFileSelect}) => {
+
+//     const handleFileInput = (e) => {
+//         var x = e.target.files[0];
+//     }
+
+//     return (
+//         <div className="file-uploader">
+//             <input type="file" className="upload-btn" onChange={handleFileInput} />
+//         </div>
+//     );
+// };
+  
+const formData = new FormData();
+formData.append("img", selectedImage);
+formData.append("body", `{\"name\": \"${form.name.value}\", \"surname\":\"${form.surname.value}\", \"gender\": \"${form.gender.value}\", \"email\": \"${form.email.value}\", \"passwordHash\": \"${form.passwordHash.value}\",}`);
+const config = {
+ headers: {
+  "Content-Type": "multipart/form-data",
+  Accept: "application/json",
+  type: "formData",
+ },
+};
+
+
+// try {
+//  const res = await axios.post(`/post`, formData, config); }
+
+  let button = form.submit.addEventListener("click", (e) => {
+    e.preventDefault();  
+   // var token ;
+     fetch(url, {
+      method: "POST",
+      headers: {
+        Accept: "application/json, text/plain, */*",
+        "Content-Type": "application/json",
+       
+      },
+      body: JSON.stringify({
+
+        email: form.email.value,
+        passwordhash: form.password.value,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          alert("Error Password or Username");
+        } else {
+          window.location.replace("../../Admin/HTML/adminMain.html");
+
+        }
+        localStorage.setItem("token", JSON.stringify(`${data.token}`));
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      
+  });
+
+
+////Empty fields Validation
+function Validate() {
+if(document.getElementById("name").value == ""  ) {
+  var typ = document.getElementById("first");
+  typ.style.border = "0.4px solid red"
+  typ.addEventListener("focus", myFocusFunction, true);
+    return false;
+}
+  if(document.getElementById("lname").value == ""  ) {
+    var typ = document.getElementById("last");
+    typ.style.border = "0.4px solid red"
+    typ.addEventListener("focus", myFocusFunction, true);
+      return false;
+  }
+  if(document.getElementById("gender").value == ""  ) {
+    var typ = document.getElementById("genders");
+    typ.style.border = "0.4px solid red"
+    typ.addEventListener("focus", myFocusFunction, true);
+      return false;
+  }
+  if(document.getElementById("pic").value == ""  ) {
+    var typ = document.getElementById("file");
+    typ.style.border = "0.4px solid red"
+    typ.addEventListener("focus", myFocusFunction, true);
+      return false;
+  }
+  if(document.getElementById("password").value == ""  ) {
+    var typ = document.getElementById("pass");
+    typ.style.border = "0.4px solid red"
+    typ.addEventListener("focus", myFocusFunction, true);
+      return false;
+  }
+    return true;
+
+    
+      function myFocusFunction() {
+        document.getElementById("first").style.border = "red";
+        document.getElementById("last").style.border = "red";
+        document.getElementById("genders").style.border = "red";
+        document.getElementById("file").style.border = "red";
+        document.getElementById("pass").style.border = "red";
+        
+    }
+   }
+
+   //Email Validation
+   function ValidateEmail(inputText)
+   {
+  var typ = document.getElementById("mail");
+   var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+   if(inputText.value.match(mailformat))
+   {
+   return true;
+   }
+   else
+   {
+   typ.style.border = "0.4px solid red";
+   typ.addEventListener("focus", myFocusFunction, true);
+   return false;
+   }
+   function myFocusFunction() {
+    document.getElementById("mail").style.border = "red";}
+   }
+   ////Good Password Validation
+
+   

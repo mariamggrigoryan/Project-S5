@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../Main/Html/main.html">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="../Css/stylistDelete.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Admin Main Page</title>
+</head>
+<body>
+	<div class="homePage"><a href="adminMain.html" > <i class="fa fa-home fa-3x" aria-hidden="true"></i></a> </div>
+	<div class="fix">
+		<div class="headerTop">
+				<div class="top">
+				<div class="logOut"> <button onclick="logout()"><i class="fa fa-sign-out" aria-hidden="true"></i>Log Out</button></div>
+				<div id="fullname"><i class="fa fa-user-circle" aria-hidden="true"></i> Mariam Grigoryan</div>
+			</div>
+		</div>
+		<div class="headerBottom">
+			<div>
+				<ul class="menu"> 
+					<li>Delete Stylist</li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+	<div id="main">
+        <div id="certificate">
+        </div>
+        <div id="delete"><button onclick="deleteFunct()"> <i class="fa fa-trash fa-lg" aria-hidden="true">  Delete Stylist</i></button></div>
+    </div>
+</body>
+<script src="../JS/stylistDelete.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</html> 
