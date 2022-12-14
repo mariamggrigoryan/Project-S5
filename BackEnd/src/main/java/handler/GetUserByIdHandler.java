@@ -37,7 +37,7 @@ public class GetUserByIdHandler implements Handler {
             context.res.setStatus(HttpStatus.OK_200);
             context.json(getUserRequest);
         }catch(Exception e){
-            System.out.println(e.getMessage());
+            System.out.println("232323" + e.getMessage());
             context.res.setStatus(HttpStatus.BAD_GATEWAY_502);
             context.res.getOutputStream().print("Error");
             context.res.getOutputStream().close();

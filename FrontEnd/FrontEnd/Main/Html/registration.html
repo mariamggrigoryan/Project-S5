@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../Css/registration.css" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<title>Registration</title>
+	</head>
+	<body onload="document.form1.text1.focus()">
+		<div class="homePage">
+			<a href="main.html">
+				<i class="fa fa-home fa-3x" aria-hidden="true"></i
+			></a>
+		</div>
+		<form action="registrationComplete.html" name="form1" class="sign_up_form">
+			<h2 class="title">Stylist Sign Up</h2>
+			<div class="input_field" id="first">
+				<i class="fa fa-user" aria-hidden="true"></i>
+				<input type="text" placeholder="Name" id="name" />
+			</div>
+			<div class="input_field" id="last">
+				<i class="fa fa-user" aria-hidden="true"></i>
+				<input type="text" placeholder="Surname" id="lname" />
+			</div>
+			<div class="input_field" id="genders">
+				<i class="fa fa-venus-mars" aria-hidden="true"></i>
+				<select id="gender" name="gender" required>
+					<option value="" selected disabled>Select Gender</option>
+					<option value="male" id="gend">Male</option>
+					<option value="female" id="gend">Female</option>
+					<option value="other" id="gend">Other</option>
+				</select>
+			</div>
+			<div class="input_field" id="mail">
+				<i class="fa fa-envelope" aria-hidden="true"></i>
+				<input type="text" placeholder="Email" id="email" name="text1" />
+			</div>
+			<div class="input_field" id="pass">
+				<i class="fa fa-lock" aria-hidden="true"></i>
+				<input type="password" placeholder="Password" id="password" />
+			</div>
+			<div class="input_field" id="file">
+				<i class="fa fa-paperclip" aria-hidden="true"></i>
+				<input
+					type="file"
+					required
+					id="pic"
+					accept="image/png, image/gif, image/jpeg"
+					onchange="readURL(this);"
+				/>
+			</div>
+			<input
+				type="submit"
+				value="SignUp"
+				onclick="ValidateEmail(document.form1.text1); return Validate()"
+				name="submit"
+				class="btn"
+				id="btn2"
+			/>
+		</form>
+		<div><img src="../../Pics/sign_up.png" /></div>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="../JS/registration.js"></script>
+</html>

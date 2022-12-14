@@ -35,7 +35,7 @@ public class PostSignInHandler implements Handler {
             } else{
                 authRequest.setToken(jwt.generateJWT(String.valueOf(user.getId()), user.getEmail(), 14444444));
                 context.res.setStatus(HttpStatus.OK_200);
-                context.res.setHeader("X-auth-Token", authRequest.getToken());
+                context.res.setHeader("X-token", authRequest.getToken());
                 context.json(authRequest);
             }
         }catch(Exception e) {
